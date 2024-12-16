@@ -1,0 +1,34 @@
+unit uStatusNegociacaoModel;
+
+interface
+  type TStatusNegociacao = (sAprovada, sConcluida, sCancelada);
+
+  type TNegociacaoStatus = class
+
+  private
+      FID: Integer;
+      FNome: string;
+      FStatus: TStatusNegociacao;
+  public
+      constructor Create;
+      destructor  Destroy; override;
+      property ID: Integer read FID write FID;
+      property Nome: string read FNome write FNome;
+      property Status: TStatusNegociacao read FStatus write FStatus;
+  end;
+implementation
+
+{ TNegociacaoStatus }
+
+constructor TNegociacaoStatus.Create;
+begin
+  inherited Create;
+end;
+
+destructor TNegociacaoStatus.Destroy;
+begin
+
+  inherited Destroy;
+end;
+
+end.

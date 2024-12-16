@@ -1,0 +1,95 @@
+unit uDMStatusNegociacao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Datasnap.DBClient, Data.DB,
+  Data.SqlExpr, Datasnap.Provider, vcl.Grids;
+
+type
+  TdtmStatusNegociacao = class(TDataModule)
+    dspPesquisar: TDataSetProvider;
+    sqlPesquisar: TSQLDataSet;
+    cdsPesquisar: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure Pesquisar(iNegociacaoID: integer; var aStringGrid : TStringGrid);
+  end;
+
+var
+  dtmStatusNegociacao: TdtmStatusNegociacao;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TdtmStatusNegociacao }
+
+procedure TdtmStatusNegociacao.Pesquisar(iNegociacaoID: integer;
+  var aStringGrid: TStringGrid);
+var
+ iTotal : Integer;
+begin
+  try
+    iTotal := 1;
+
+    cdsPesquisar.Active := False;
+
+    cdsPesquisar.Params[0].AsInteger :=iNegociacaoID;
+
+    cdsPesquisar.Open;
+    cdsPesquisar.DisableConstraints;
+    cdsPesquisar.Last;
+
+    //Configurar colunas StringGrid
+    aStringGrid.RowCount := cdsPesquisar.RecordCount+1;
+
+    aStringGrid.ColCount := 8;
+    aStringGrid.cells[0,0] := 'Cód. Contrato';
+    aStringGrid.Cells[1,0] := 'Produtor';
+    aStringGrid.cells[2,0] := 'Distribuidor';
+    aStringGrid.cells[3,0] := 'Status';
+
+
+    aStringGrid.cells[4,0] := 'Dt. Cadastro';
+    aStringGrid.cells[5,0] := 'Dt. Aprovação';
+    aStringGrid.cells[6,0] := 'Dt. Conclusão';
+    aStringGrid.cells[7,0] := 'Dt. Cancelamento';
+
+    aStringGrid.ColWidths[0] := 80;
+    aStringGrid.ColWidths[1] := 120;
+    aStringGrid.ColWidths[2] := 120;
+    aStringGrid.ColWidths[3] := 90;
+
+    aStringGrid.ColWidths[4] := 90;
+    aStringGrid.ColWidths[5] := 90;
+    aStringGrid.ColWidths[6] := 90;
+    aStringGrid.ColWidths[7] := 100;
+
+    //Popular linhas StringGrid
+    cdsPesquisar.First;
+    while not cdsPesquisar.Eof do
+    begin
+      aStringGrid.Cells[0,iTotal] := cdsPesquisar.FieldByName('NEGOCIACAO_ID').AsString;
+      aStringGrid.Cells[1,iTotal] := cdsPesquisar.FieldByName('PRODUTOR').AsString;
+      aStringGrid.Cells[2,iTotal] := cdsPesquisar.FieldByName('DISTRIBUIDOR').AsString;
+      aStringGrid.Cells[3,iTotal] := cdsPesquisar.FieldByName('SITUACAO').AsString;
+      aStringGrid.Cells[4,iTotal] := cdsPesquisar.FieldByName('DATA_INICIO').AsString;
+      aStringGrid.Cells[5,iTotal] := cdsPesquisar.FieldByName('DATA_APROVACAO').AsString;
+      aStringGrid.Cells[6,iTotal] := cdsPesquisar.FieldByName('DATA_CONCLUSAO').AsString;
+      aStringGrid.Cells[7,iTotal] := cdsPesquisar.FieldByName('DATA_CANCELAMENTO').AsString;
+      Inc(iTotal);
+      cdsPesquisar.Next;
+    end;
+  finally
+    cdsPesquisar.EnableConstraints;
+    cdsPesquisar.Close;
+  end;
+
+end;
+
+end.

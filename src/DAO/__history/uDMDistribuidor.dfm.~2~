@@ -1,0 +1,4 @@
+object dtmDistribuidor: TdtmDistribuidor
+  Height = 152
+  Width = 332
+end

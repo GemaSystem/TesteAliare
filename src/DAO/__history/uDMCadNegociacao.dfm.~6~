@@ -1,0 +1,99 @@
+object dtmCadNegociacao: TdtmCadNegociacao
+  Height = 235
+  Width = 439
+  object dspPesquisar: TDataSetProvider
+    DataSet = sqlPesquisar
+    Left = 40
+    Top = 65
+  end
+  object sqlPesquisar: TSQLDataSet
+    CommandText = 
+      'SELECT  LI.*, DI.NOME DISTRIBUIDOR  FROM limitecredito LI'#13#10'LEFT ' +
+      'JOIN DISTRIBUIDOR DI ON DI.distribuidor_id = LI.distribuidor_id'#13 +
+      #10'WHERE PRODUTOR_ID = :PRODUTOR_ID'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'PRODUTOR_ID'
+        ParamType = ptInput
+      end>
+    SQLConnection = dtmConexao.SqlConexao
+    Left = 40
+    Top = 8
+  end
+  object cdsPesquisar: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'PRODUTOR_ID'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspPesquisar'
+    Left = 40
+    Top = 128
+  end
+  object dspProdutor: TDataSetProvider
+    DataSet = sqlProdutor
+    Left = 136
+    Top = 65
+  end
+  object sqlProdutor: TSQLDataSet
+    CommandText = 'SELECT * FROM PRODUTOR WHERE NOME LIKE :NOME'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'NOME'
+        ParamType = ptInput
+      end>
+    SQLConnection = dtmConexao.SqlConexao
+    Left = 136
+    Top = 8
+  end
+  object cdsProdutor: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftString
+        Name = 'NOME'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspProdutor'
+    Left = 136
+    Top = 128
+  end
+  object dspLimiteCredito: TDataSetProvider
+    DataSet = sqlLimteCredito
+    Left = 232
+    Top = 73
+  end
+  object sqlLimteCredito: TSQLDataSet
+    CommandText = 
+      'SELECT * FROM LIMITECREDITO WHERE LIMITECREDITO_ID = :LIMITECRED' +
+      'ITO_ID'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'LIMITECREDITO_ID'
+        ParamType = ptInput
+      end>
+    SQLConnection = dtmConexao.SqlConexao
+    Left = 232
+    Top = 16
+  end
+  object cdsLimiteCredito: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'LIMITECREDITO_ID'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspLimiteCredito'
+    Left = 232
+    Top = 136
+  end
+end

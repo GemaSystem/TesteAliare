@@ -1,0 +1,112 @@
+object dmPesquisaNegociacoes: TdmPesquisaNegociacoes
+  Height = 272
+  Width = 338
+  object dtsPesquisa: TDataSource
+    DataSet = cdsPesquisar
+    Left = 40
+    Top = 192
+  end
+  object dspPesquisar: TDataSetProvider
+    DataSet = sqlPesquisar
+    Left = 40
+    Top = 65
+  end
+  object sqlPesquisar: TSQLDataSet
+    CommandText = 
+      'SELECT NEG.*, P.nome produtor, DIS.nome DISTRIBUIDOR FROM NEGOCI' +
+      'ACAO NEG'#13#10'LEFT JOIN PRODUTOR P ON NEG.produtor_id = P.produtor_i' +
+      'd'#13#10'LEFT JOIN limitecredito LI ON LI.limitecredito_id = NEG.limit' +
+      'ecredito_id'#13#10'LEFT JOIN DISTRIBUIDOR DIS ON DIS.distribuidor_id =' +
+      ' LI.distribuidor_id'#13#10'WHERE p.nome like  :produtor'#13#10'and dis.nome ' +
+      'like :distribuidor'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftString
+        Name = 'produtor'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'distribuidor'
+        ParamType = ptInput
+      end>
+    SQLConnection = dtmConexao.SqlConexao
+    Left = 40
+    Top = 8
+  end
+  object cdsPesquisar: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftString
+        Name = 'produtor'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'distribuidor'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspPesquisar'
+    Left = 40
+    Top = 128
+  end
+  object frxConsultaNegociacoes: TfrxReport
+    Version = '2022.1.3'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Padr'#227'o'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 45641.085314039350000000
+    ReportOptions.LastChange = 45641.085314039350000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 184
+    Top = 72
+    Datasets = <>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+    end
+  end
+  object frxDBConsultaNegociacoes: TfrxDBDataset
+    UserName = 'frxDBConsultaNegociacoes'
+    CloseDataSource = False
+    FieldAliases.Strings = (
+      'NEGOCIACAO_ID=NEGOCIACAO_ID'
+      'DATA_INICIO=DATA_INICIO'
+      'SITUACAO=SITUACAO'
+      'PRODUTOR_ID=PRODUTOR_ID'
+      'DATA_APROVACAO=DATA_APROVACAO'
+      'DATA_CANCELAMENTO=DATA_CANCELAMENTO'
+      'VALOR_TOTAL_CONTRATO=VALOR_TOTAL_CONTRATO'
+      'LIMITECREDITO_ID=LIMITECREDITO_ID'
+      'DATA_CONCLUSAO=DATA_CONCLUSAO'
+      'PRODUTOR=PRODUTOR'
+      'DISTRIBUIDOR=DISTRIBUIDOR')
+    DataSource = dtsPesquisa
+    BCDToCurrency = False
+    DataSetOptions = []
+    Left = 184
+    Top = 144
+  end
+end

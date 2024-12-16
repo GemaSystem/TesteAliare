@@ -1,0 +1,4 @@
+object dtmLimiteCredito: TdtmLimiteCredito
+  Height = 274
+  Width = 307
+end

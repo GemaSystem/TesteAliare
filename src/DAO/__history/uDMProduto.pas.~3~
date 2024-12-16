@@ -1,0 +1,29 @@
+unit uDMProduto;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Datasnap.DBClient, Data.DB,
+  Data.SqlExpr, Datasnap.Provider;
+
+type
+  TdtmProduto = class(TDataModule)
+    dspPesquisar: TDataSetProvider;
+    sqlPesquisar: TSQLDataSet;
+    cdsPesquisar: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dtmProduto: TdtmProduto;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

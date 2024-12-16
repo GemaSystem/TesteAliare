@@ -1,0 +1,23 @@
+unit uProdutorModel;
+
+interface
+
+uses
+  System.SysUtils;
+
+type
+  Tprodutor = class
+private
+    Fid: integer;
+    FCpf: integer;
+    FNome: integer;
+
+public
+  property id: integer read Fid Write Fid;
+  property Nome: integer read FNome Write FNome;
+  property Cpf: integer read FCpf Write FCpf;
+end;
+
+implementation
+
+end.

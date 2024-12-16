@@ -1,0 +1,37 @@
+unit uDMDistribuidor;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Datasnap.DBClient, Data.DB,
+  Data.SqlExpr, Datasnap.Provider, VCL.Grids, uDistribuidorModel;
+
+type
+  TdtmDistribuidor = class(TDataModule)
+    dspPesquisar: TDataSetProvider;
+    sqlPesquisar: TSQLDataSet;
+    cdsPesquisar: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function GerarID:Integer;
+    procedure Pesquisar(sNome: string; var aStringGrid : TStringGrid);
+    procedure CarregarProdutor(oDistribuidor : TDistribuidor; iCodigo : Integer);
+    function Inserir(oDistribuidor : TDistribuidor; out sErro : String):Boolean;
+    function Alterar(oDistribuidor : TDistribuidor; out sErro : String):Boolean;
+    function Excluir(iCodigo : Integer; out sErro : String):Boolean;
+  end;
+
+var
+  dtmDistribuidor: TdtmDistribuidor;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses DMConexao;
+
+{$R *.dfm}
+
+end.

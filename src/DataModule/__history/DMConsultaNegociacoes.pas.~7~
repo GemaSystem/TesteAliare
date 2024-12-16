@@ -1,0 +1,51 @@
+unit DMConsultaNegociacoes;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Data.DB, Datasnap.DBClient,
+  Data.SqlExpr, Datasnap.Provider;
+
+type
+  TdmPesquisaNegociacoes = class(TDataModule)
+    dtsPesquisa: TDataSource;
+    dspPesquisar: TDataSetProvider;
+    sqlPesquisar: TSQLDataSet;
+    cdsPesquisar: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure Pesquisar(sNome:String;bProdutor:Boolean);
+  end;
+
+var
+  dmPesquisaNegociacoes: TdmPesquisaNegociacoes;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+{ TDataModule1 }
+
+procedure TdmPesquisaNegociacoes.Pesquisar(sNome: String; bProdutor: Boolean);
+begin
+  cdsPesquisar.Active := False;
+
+  if bProdutor then
+  begin
+    cdsPesquisar.Params[0].AsString := '%'+sNome+'%';
+    cdsPesquisar.Params[1].AsString := '%';
+  end
+  else
+  begin
+    cdsPesquisar.Params[0].AsString := '%';
+    cdsPesquisar.Params[1].AsString := '%'+sNome+'%';
+  end;
+
+  cdsPesquisar.Open;
+end;
+
+end.

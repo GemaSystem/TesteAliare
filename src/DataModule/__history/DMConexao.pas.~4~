@@ -1,0 +1,45 @@
+unit DMConexao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, Data.SqlExpr,
+  Data.DBXFirebird, System.IniFiles;
+
+type
+  TdtmConexao = class(TDataModule)
+    SqlConexao: TSQLConnection;
+    procedure DataModuleCreate(Sender: TObject);
+    procedure SqlConexaoBeforeConnect(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dtmConexao: TdtmConexao;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure TdtmConexao.DataModuleCreate(Sender: TObject);
+begin
+  SqlConexao.Connected := true;
+end;
+
+procedure TdtmConexao.SqlConexaoBeforeConnect(Sender: TObject);
+var
+  vIni : TIniFile;
+  vBaseDados, vUsuario, vSenha: string;
+begin
+   vIni := TIniFile.Create('F:\Desenvolvimento\DesafioAliare_Delphi3\docs\Config\Config.ini');
+   vBaseDados := vIni.ReadString('Geral', 'BaseDados', '');
+   vUsuario := vIni.ReadString('Geral', 'Usuario', '');
+   vSenha := vIni.ReadString('Geral', 'Senha', '');
+end;
+
+end.

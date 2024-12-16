@@ -1,0 +1,38 @@
+unit ConsultaNegociacoes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.ExtCtrls, Data.DB, Vcl.DBGrids;
+
+type
+  TfrmConsultaNegociacoes = class(TForm)
+    Panel1: TPanel;
+    btnPesquisar: TBitBtn;
+    RadioGroup1: TRadioGroup;
+    edtPesquisa: TEdit;
+    DBGrid1: TDBGrid;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmConsultaNegociacoes: TfrmConsultaNegociacoes;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmConsultaNegociacoes.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+  frmConsultaNegociacoes := nil;
+  Action := CaFree;
+end;
+
+end.

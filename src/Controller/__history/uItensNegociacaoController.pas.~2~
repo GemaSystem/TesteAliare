@@ -1,0 +1,51 @@
+unit uItensNegociacaoController;
+
+interface
+uses uDMItensNegociacao, uCAdItensNegociacaoModel, Data.SqlExpr, vcl.Grids,Vcl.StdCtrls;
+
+type
+  TLimiteCreditoController = class
+    public
+     constructor Create;
+     destructor Destroy; override;
+     procedure Pesquisar(sNegociacao_ID: Integer; var aStringGrid : TStringGrid);
+     function Inserir(oItensNegociacao : TCadItensNegociacao; out sErro : String):Boolean;
+     function Excluir(iCodigo : Integer; out sErro : String):Boolean;
+  end;
+implementation
+
+uses
+  system.SysUtils;
+
+{ TLimiteCreditoController }
+
+constructor TLimiteCreditoController.Create;
+begin
+  dtmItensNegociacao := TdtmItensNegociacao.Create(nil);
+end;
+
+destructor TLimiteCreditoController.Destroy;
+begin
+  FreeAndNil(dtmItensNegociacao);
+  inherited;
+end;
+
+function TLimiteCreditoController.Excluir(iCodigo: Integer;
+  out sErro: String): Boolean;
+begin
+  dtmItensNegociacao.Excluir(iCodigo,sErro);
+end;
+
+function TLimiteCreditoController.Inserir(oItensNegociacao: TCadItensNegociacao;
+  out sErro: String): Boolean;
+begin
+  dtmItensNegociacao.Inserir(oItensNegociacao,sErro);
+end;
+
+procedure TLimiteCreditoController.Pesquisar(sNegociacao_ID: Integer;
+  var aStringGrid: TStringGrid);
+begin
+  dtmItensNegociacao.Pesquisar(sNegociacao_ID,aStringGrid);
+end;
+
+end.

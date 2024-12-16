@@ -1,0 +1,95 @@
+unit uDMProduto;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.FMTBcd, Datasnap.DBClient, Data.DB,
+  Data.SqlExpr, Datasnap.Provider,Vcl.Grids, uProdutoModel;
+
+type
+  TdtmProduto = class(TDataModule)
+    dspPesquisar: TDataSetProvider;
+    sqlPesquisar: TSQLDataSet;
+    cdsPesquisar: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function GerarID:Integer;
+    procedure Pesquisar(sNome: string; var aStringGrid : TStringGrid);
+    procedure CarregarProduto(oProduto : TProduto; iCodigo : Integer);
+    function Inserir(oProduto : TProduto; out sErro : String):Boolean;
+    function Alterar(oProduto : TProduto; out sErro : String):Boolean;
+    function Excluir(iCodigo : Integer; out sErro : String):Boolean;
+  end;
+
+var
+  dtmProduto: TdtmProduto;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+uses DMConexao;
+
+{$R *.dfm}
+
+{ TdtmProduto }
+
+function TdtmProduto.Alterar(oProduto: TProduto; out sErro: String): Boolean;
+var
+  sqlAlterar : TSQLDataset;
+begin
+  sqlAlterar := TSQLDataset.Create(nil);
+  try
+    sqlAlterar.SQLConnection := dtmConexao.SqlConexao;
+    sqlAlterar.CommandText := ' UPDATE PRODUTO '+
+                              ' SET NOME = :NOME, '+
+                              ' PRECO = :PRECO '+
+                              ' WHERE PRODUTO_ID = :PRODUTO_ID ';
+
+    sqlAlterar.Params[0].AsString := oProduto.Descricao;
+    sqlAlterar.Params[1].AsFloat := oProduto.Preco;
+    sqlAlterar.Params[2].AsInteger := oProduto.id;
+
+    try
+      sqlAlterar.ExecSQL();
+      Result := true;
+    Except
+      on e:Exception do
+      begin
+        sErro := 'Erro ao alterar produtor: '+e.Message;
+        Result := false;
+      end;
+    end;
+  finally
+    FreeAndNil(sqlAlterar);
+  end;
+
+end;
+
+procedure TdtmProduto.CarregarProduto(oProduto: TProduto; iCodigo: Integer);
+begin
+end;
+
+function TdtmProduto.Excluir(iCodigo: Integer; out sErro: String): Boolean;
+begin
+
+end;
+
+function TdtmProduto.GerarID: Integer;
+begin
+
+end;
+
+function TdtmProduto.Inserir(oProduto: TProduto; out sErro: String): Boolean;
+begin
+
+end;
+
+procedure TdtmProduto.Pesquisar(sNome: string; var aStringGrid: TStringGrid);
+begin
+
+end;
+
+end.

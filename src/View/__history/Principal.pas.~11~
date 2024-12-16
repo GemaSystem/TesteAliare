@@ -1,0 +1,93 @@
+unit Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils,
+  System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  Vcl.ToolWin, Vcl.ActnMan,
+  Vcl.ActnCtrls, Vcl.ActnMenus, Vcl.StdCtrls, Vcl.Buttons, Vcl.TitleBarCtrls,
+  Vcl.Menus;
+
+type
+  TfrmPrincipal = class(TForm)
+    pnlFundo: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    btnCadastroNegociacao: TBitBtn;
+    BitBtn5: TBitBtn;
+    BitBtn6: TBitBtn;
+    btnSair: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure btnCadastroNegociacaoClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+    procedure BitBtn5Click(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses Produtor, Distribuidor, Produto, CadNegociacao, ManutencaoNegociacao,
+  ConsultaNegociacoes;
+
+procedure TfrmPrincipal.BitBtn1Click(Sender: TObject);
+begin
+  if TComponent(frmProdutor) = nil then
+    frmProdutor := TfrmProdutor.Create(self);
+  frmProdutor.Show;
+end;
+
+procedure TfrmPrincipal.BitBtn2Click(Sender: TObject);
+begin
+   if TComponent(frmDistribuidor) = nil then
+    frmDistribuidor := TfrmDistribuidor.Create(self);
+  frmDistribuidor.Show;
+end;
+
+procedure TfrmPrincipal.BitBtn3Click(Sender: TObject);
+begin
+  if TComponent(frmProduto) = nil then
+    frmProduto := TfrmProduto.Create(self);
+  frmProduto.Show;
+end;
+
+procedure TfrmPrincipal.BitBtn5Click(Sender: TObject);
+begin
+  if TComponent(frmManutencaoNegociacao) = nil then
+    frmManutencaoNegociacao := TfrmManutencaoNegociacao.Create(self);
+  frmManutencaoNegociacao.Show;
+end;
+
+procedure TfrmPrincipal.BitBtn6Click(Sender: TObject);
+begin
+  if TComponent(frmConsultaNegociacoes) = nil then
+    frmConsultaNegociacoes := TfrmConsultaNegociacoes.Create(self);
+  frmConsultaNegociacoes.Show;
+end;
+
+procedure TfrmPrincipal.btnCadastroNegociacaoClick(Sender: TObject);
+begin
+  if TComponent(frmCadNegociacao) = nil then
+    frmCadNegociacao := TfrmCadNegociacao.Create(self);
+  frmCadNegociacao.Show;
+end;
+
+procedure TfrmPrincipal.btnSairClick(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

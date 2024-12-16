@@ -1,0 +1,51 @@
+unit Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils,
+  System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  Vcl.ToolWin, Vcl.ActnMan,
+  Vcl.ActnCtrls, Vcl.ActnMenus, Vcl.StdCtrls, Vcl.Buttons, Vcl.TitleBarCtrls,
+  Vcl.Menus;
+
+type
+  TfrmPrincipal = class(TForm)
+    pnlFundo: TPanel;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    BitBtn4: TBitBtn;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+uses Produtor, Distribuidor;
+
+procedure TfrmPrincipal.BitBtn1Click(Sender: TObject);
+begin
+  if TComponent(frmProdutor) = nil then
+    frmProdutor := TfrmProdutor.Create(self);
+  frmProdutor.Show;
+end;
+
+procedure TfrmPrincipal.BitBtn2Click(Sender: TObject);
+begin
+   if TComponent(frmDistribuidor) = nil then
+    frmDistribuidor := TfrmDistribuidor.Create(self);
+  frmDistribuidor.Show;
+end;
+
+end.

@@ -1,0 +1,81 @@
+unit Produtor;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.Grids,
+  Vcl.ComCtrls, Vcl.ExtCtrls, Data.DB, Vcl.DBGrids, Vcl.DBCtrls;
+
+type
+  TfrmProdutor = class(TForm)
+    Panel1: TPanel;
+    pgcProdutor: TPageControl;
+    tabPesquisa: TTabSheet;
+    tabCadastro: TTabSheet;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    edtNome: TEdit;
+    Label1: TLabel;
+    edtCpf: TEdit;
+    Label2: TLabel;
+    btnPesquisar: TBitBtn;
+    tnbCadastrar: TBitBtn;
+    DBGrid1: TDBGrid;
+    BitBtn2: TBitBtn;
+    btnEditar: TBitBtn;
+    pnlCadProdutor: TPanel;
+    Edit1: TEdit;
+    Label3: TLabel;
+    Label4: TLabel;
+    Edit2: TEdit;
+    BitBtn1: TBitBtn;
+    pnlVincularDist: TPanel;
+    StringGrid1: TStringGrid;
+    DBComboBox1: TDBComboBox;
+    Label5: TLabel;
+    BitBtn3: TBitBtn;
+    Edit3: TEdit;
+    Label6: TLabel;
+    BitBtn5: TBitBtn;
+    procedure tnbCadastrarClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmProdutor: TfrmProdutor;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmProdutor.BitBtn1Click(Sender: TObject);
+begin
+ pnlVincularDist.Enabled := True;
+end;
+
+procedure TfrmProdutor.btnEditarClick(Sender: TObject);
+begin
+  pnlVincularDist.Enabled := True;
+end;
+
+procedure TfrmProdutor.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  frmProdutor := nil;
+  Action := CaFree;
+end;
+
+procedure TfrmProdutor.tnbCadastrarClick(Sender: TObject);
+begin
+  pgcProdutor.ActivePage := tabCadastro;
+  pnlCadProdutor.Enabled := True;
+  pnlVincularDist.Enabled := false;
+end;
+
+end.

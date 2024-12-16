@@ -1,0 +1,19 @@
+object dtmControle: TdtmControle
+  Height = 480
+  Width = 640
+  object sqlGeral: TSQLDataSet
+    Params = <>
+    Left = 56
+    Top = 64
+  end
+  object dspPesquisar: TDataSetProvider
+    Left = 152
+    Top = 64
+  end
+  object cdsPesquisar: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 248
+    Top = 65
+  end
+end

@@ -1,0 +1,37 @@
+object dtmItensNegociacao: TdtmItensNegociacao
+  Height = 243
+  Width = 427
+  object dspPesquisar: TDataSetProvider
+    DataSet = sqlPesquisar
+    Left = 40
+    Top = 65
+  end
+  object sqlPesquisar: TSQLDataSet
+    CommandText = 
+      'SELECT  LI.*, DI.NOME DISTRIBUIDOR  FROM limitecredito LI'#13#10'LEFT ' +
+      'JOIN DISTRIBUIDOR DI ON DI.distribuidor_id = LI.distribuidor_id'#13 +
+      #10'WHERE PRODUTOR_ID = :PRODUTOR_ID'
+    MaxBlobSize = -1
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'PRODUTOR_ID'
+        ParamType = ptInput
+      end>
+    SQLConnection = dtmConexao.SqlConexao
+    Left = 40
+    Top = 8
+  end
+  object cdsPesquisar: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'PRODUTOR_ID'
+        ParamType = ptInput
+      end>
+    ProviderName = 'dspPesquisar'
+    Left = 40
+    Top = 128
+  end
+end

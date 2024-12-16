@@ -1,0 +1,18 @@
+unit uCadNegociacaoController;
+
+interface
+uses uDMCadNegociacao, uCadNegociacao, Data.SqlExpr, vcl.Grids,Vcl.StdCtrls;
+ type
+  TCadNegociacaoController = class
+    public
+     constructor Create;
+     destructor Destroy; override;
+     procedure CarregarComboboxProdutor(cbbProdutor: TCombobox);
+     procedure CarregarComboboxLimiteCredito(cbbLimiteCredito: TCombobox; sProdutor_ID : Integer);
+     function Inserir(oCadNegociacao : TCadNegociacao; out sErro : String):Boolean;
+     function Alterar(oCadNegociacao : TCadNegociacao; out sErro : String):Boolean;
+     function Excluir(iCodigo : Integer;sTabela :String; out sErro : String):Boolean;
+  end;
+implementation
+
+end.
