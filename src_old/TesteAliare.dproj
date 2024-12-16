@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{780DB8C6-8D16-4E6A-B7C1-21B270679D97}</ProjectGuid>
+        <ProjectGuid>{FF73D254-BF5A-4379-B6F0-DCBD915586EB}</ProjectGuid>
         <ProjectVersion>19.4</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
@@ -8,7 +8,7 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>DesafioAliareDelphi3.dpr</MainSource>
+        <MainSource>TesteAliare.dpr</MainSource>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -57,10 +57,10 @@
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
-        <SanitizedProjectName>DesafioAliareDelphi3</SanitizedProjectName>
+        <SanitizedProjectName>TesteAliare</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>vclwinx;DataSnapServer;frx27;fmx;emshosting;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;FireDACCommonDriver;fsDB27;appanalytics;IndyProtocols;vclx;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;fs27;emsedge;bindcompfmx;DBXFirebirdDriver;inetdb;FireDACSqliteDriver;DbxClientDriver;FireDACASADriver;soapmidas;vclactnband;fmxFireDAC;dbexpress;FireDACInfxDriver;DBXMySQLDriver;VclSmp;inet;DataSnapCommon;vcltouch;fmxase;frxDBX27;DBXOdbcDriver;dbrtl;FireDACDBXDriver;FireDACOracleDriver;fmxdae;FireDACMSAccDriver;CustomIPTransport;FireDACMSSQLDriver;DataSnapIndy10ServerTransport;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;fsADO27;IndySystem;FireDACTDataDriver;frxADO27;vcldb;vclFireDAC;bindcomp;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;DataSnapClient;DataSnapProviderClient;adortl;frxe27;DBXSybaseASEDriver;DBXDb2Driver;vclimg;DataSnapFireDAC;emsclientfiredac;FireDACPgDriver;FireDAC;FireDACDSDriver;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;DBXSybaseASADriver;DBXOracleDriver;FireDACDb2Driver;DBXInformixDriver;fmxobj;bindcompvclsmp;DataSnapNativeClient;DatasnapConnectorsFreePascal;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>vclwinx;DataSnapServer;fmx;emshosting;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;FireDACCommonDriver;fs22;appanalytics;IndyProtocols;vclx;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;emsedge;bindcompfmx;DBXFirebirdDriver;inetdb;FireDACSqliteDriver;DbxClientDriver;FireDACASADriver;soapmidas;vclactnband;fmxFireDAC;dbexpress;FireDACInfxDriver;DBXMySQLDriver;VclSmp;inet;DataSnapCommon;vcltouch;fmxase;DBXOdbcDriver;dbrtl;FireDACDBXDriver;FireDACOracleDriver;fmxdae;FireDACMSAccDriver;CustomIPTransport;FireDACMSSQLDriver;DataSnapIndy10ServerTransport;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;IndySystem;FireDACTDataDriver;vcldb;frxDB22;vclFireDAC;bindcomp;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;DataSnapClient;DataSnapProviderClient;adortl;DBXSybaseASEDriver;DBXDb2Driver;frx22;vclimg;DataSnapFireDAC;emsclientfiredac;FireDACPgDriver;FireDAC;FireDACDSDriver;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;DBXSybaseASADriver;DBXOracleDriver;FireDACDb2Driver;DBXInformixDriver;fmxobj;bindcompvclsmp;DataSnapNativeClient;DatasnapConnectorsFreePascal;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -88,8 +88,8 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_ExeOutput>F:\Desenvolvimento\DesafioAliare_Delphi3\bin\</DCC_ExeOutput>
-        <DCC_DcuOutput>F:\Desenvolvimento\DesafioAliare_Delphi3\bin\dcu\</DCC_DcuOutput>
+        <DCC_ExeOutput>..\DesafioAliare\bin\</DCC_ExeOutput>
+        <DCC_DcuOutput>F:\Desenvolvimento\DCU\</DCC_DcuOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -105,94 +105,94 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="DataModule\DMConexao.pas">
+        <DCCReference Include="src\View\Principal.pas">
+            <Form>frmPrincipal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\View\Produto.pas">
+            <Form>frmProduto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\View\Produtor.pas">
+            <Form>frmProdutor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\View\ConsultaNegociacoes.pas">
+            <Form>frmConsultaNegociacoes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\View\Distribuidor.pas">
+            <Form>frmDistribuidor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\View\ManutencaoNegociacao.pas">
+            <Form>frmManutencaoNegociacao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\Controller\uCadNegociacaoController.pas"/>
+        <DCCReference Include="src\Controller\uDistribuidorController.pas"/>
+        <DCCReference Include="src\Controller\uItensNegociacaoController.pas"/>
+        <DCCReference Include="src\Controller\uLimiteCreditoController.pas"/>
+        <DCCReference Include="src\Controller\uProdutoController.pas"/>
+        <DCCReference Include="src\Controller\uProdutorController.pas"/>
+        <DCCReference Include="src\Controller\uStatusNegociacaoController.pas"/>
+        <DCCReference Include="src\Model\uCadItensNegociacaoModel.pas"/>
+        <DCCReference Include="src\Model\uCadNegociacaoModel.pas"/>
+        <DCCReference Include="src\Model\uDistribuidorModel.pas"/>
+        <DCCReference Include="src\Model\uLimiteCreditoModel.pas"/>
+        <DCCReference Include="src\Model\uProdutoModel.pas"/>
+        <DCCReference Include="src\Model\uProdutorModel.pas"/>
+        <DCCReference Include="src\Model\uStatusNegociacaoModel.pas"/>
+        <DCCReference Include="src\DataModule\DMConexao.pas">
             <Form>dtmConexao</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="View\Principal.pas">
-            <Form>frmPrincipal</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="View\Produtor.pas">
-            <Form>frmProdutor</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="Model\uProdutorModel.pas"/>
-        <DCCReference Include="DAO\uDMProdutor.pas">
-            <Form>dtmProdutor</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="Controller\uProdutorController.pas"/>
-        <DCCReference Include="View\Distribuidor.pas">
-            <Form>frmDistribuidor</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="Model\uDistribuidorModel.pas"/>
-        <DCCReference Include="DAO\uDMDistribuidor.pas">
-            <Form>dtmDistribuidor</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="Controller\uDistribuidorController.pas"/>
-        <DCCReference Include="View\Produto.pas">
-            <Form>frmProduto</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="Model\uProdutoModel.pas"/>
-        <DCCReference Include="DAO\uDMProduto.pas">
-            <Form>dtmProduto</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="Controller\uProdutoController.pas"/>
-        <DCCReference Include="Model\uLimiteCreditoModel.pas"/>
-        <DCCReference Include="DAO\uDMLimiteCredito.pas">
-            <Form>dtmLimiteCredito</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
-        <DCCReference Include="Controller\uLimiteCreditoController.pas"/>
-        <DCCReference Include="View\CadNegociacao.pas">
+        <DCCReference Include="src\Utils\Rotinas.pas"/>
+        <DCCReference Include="src\View\CadNegociacao.pas">
             <Form>frmCadNegociacao</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Model\uCadNegociacaoModel.pas"/>
-        <DCCReference Include="DAO\uDMCadNegociacao.pas">
+        <DCCReference Include="src\DAO\uDMCadNegociacao.pas">
             <Form>dtmCadNegociacao</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Controller\uCadNegociacaoController.pas"/>
-        <DCCReference Include="Model\uCadItensNegociacaoModel.pas"/>
-        <DCCReference Include="DAO\uDMItensNegociacao.pas">
+        <DCCReference Include="src\DAO\uDMDistribuidor.pas">
+            <Form>dtmDistribuidor</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\DAO\uDMItensNegociacao.pas">
             <Form>dtmItensNegociacao</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Controller\uItensNegociacaoController.pas"/>
-        <DCCReference Include="View\ManutencaoNegociacao.pas">
-            <Form>frmManutencaoNegociacao</Form>
+        <DCCReference Include="src\DAO\uDMLimiteCredito.pas">
+            <Form>dtmLimiteCredito</Form>
             <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Model\uStatusNegociacaoModel.pas"/>
-        <DCCReference Include="DAO\uDMStatusNegociacao.pas">
+        <DCCReference Include="src\DAO\uDMProduto.pas">
+            <Form>dtmProduto</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\DAO\uDMProdutor.pas">
+            <Form>dtmProdutor</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="src\DAO\uDMStatusNegociacao.pas">
             <Form>dtmStatusNegociacao</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Controller\uStatusNegociacaoController.pas"/>
-        <DCCReference Include="View\ConsultaNegociacoes.pas">
-            <Form>frmConsultaNegociacoes</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="DataModule\DMConsultaNegociacoes.pas">
+        <DCCReference Include="src\DataModule\DMConsultaNegociacoes.pas">
             <Form>dmPesquisaNegociacoes</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Utils\Rotinas.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -211,9 +211,16 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">DesafioAliareDelphi3.dpr</Source>
+                    <Source Name="MainSource">TesteAliare.dpr</Source>
                 </Source>
                 <Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfs27.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfs27.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfsDB27.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfsDB27.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfrx27.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfrx27.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfsADO27.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfsADO27.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfrxDBX27.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfrxDBX27.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfrxADO27.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfrxADO27.bpl not found</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfrxe27.bpl">File C:\Users\Public\Documents\Embarcadero\Studio\22.0\Bpl\dclfrxe27.bpl not found</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k280.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp280.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
@@ -221,9 +228,9 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="..\bin\DesafioAliareDelphi3.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="bin\TesteAliare.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>DesafioAliareDelphi3.exe</RemoteName>
+                        <RemoteName>TesteAliare.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
